@@ -28,14 +28,9 @@
 		const FEAT_ALLOW_SSL = true;
 		const FEAT_RECOVERY = false;
 
-		public function handle(array $params): bool
-		{
-			if (isset($params['restartApp'])) {
-				return \Module\Support\Webapps\Passenger::instantiateContexted(
-					$this->getAuthContext(), [$this->getAppRoot(), 'ruby'])->restart() &&
-					info('Restarts may take up to 2 minutes to complete');
-			}
-		}
+		const TRANSIENT_RECONFIGURABLES = [
+			'restart'
+		];
 
 		public function hasFortification(): bool
 		{
