@@ -22,9 +22,6 @@
 	{
 		public function handle(&$val): bool
 		{
-			// language type isn't used here, but to silence inference from Passengerfile.json
-			return Passenger::instantiateContexted(
-				$this->getAuthContext(), [$this->app->getAppRoot(), 'ruby'])->restart() &&
-				info('Restart may take up to 2 minutes to complete');
+			return $this->{$this->app->getClassMapping() . '_restart'}($this->app->getHostname(), $this->app->getPath());
 		}
 	}
