@@ -22,6 +22,7 @@
 	{
 		public function handle(&$val): bool
 		{
-			return $this->{$this->app->getClassMapping() . '_restart'}($this->app->getHostname(), $this->app->getPath());
+			return $this->{$this->app->getClassMapping() . '_restart'}($this->app->getHostname(), $this->app->getPath()) &&
+				info('Restart may take up to 2 minutes to complete');
 		}
 	}
