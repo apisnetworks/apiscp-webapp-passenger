@@ -27,6 +27,7 @@
 		const DEFAULT_FORTIFICATION = 'max';
 		const FEAT_ALLOW_SSL = true;
 		const FEAT_RECOVERY = false;
+		const APP_ROOT_DEPTH = 1;
 
 		const TRANSIENT_RECONFIGURABLES = [
 			'restart'
